@@ -1,0 +1,45 @@
+main app.jsx
+
+import React from "react";
+
+function Card({ image, profession, name }) {
+  return (
+    <div className="w-52 bg-white rounded-md overflow-hidden mr-5">
+      <div className="w-full h-48 bg-sky-300">
+        <img src={image} alt={name} className="w-full h-full object-cover" />
+      </div>
+      <div className="w-full p-3 bg-white">{name}</div>
+      <h2 className="text-semibold text-stone-400 text-lg">{profession}</h2>
+      <button className="mt-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+        Add Friend
+      </button>
+    </div>
+  );
+}
+
+export default Card;
+
+
+Card.jsx
+import React from "react";
+
+function Card({ image, profession, name }) {
+  return (
+    <div className="w-52 bg-white rounded-md overflow-hidden mr-5">
+      <div className="w-full h-48 bg-sky-300">
+        <img src={image} alt={name} className="w-full h-full object-cover" />
+      </div>
+      <div className="w-full p-3 bg-white">{name}</div>
+      <h2 className="text-semibold text-stone-400 text-lg">{profession}</h2>
+      <button className="mt-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+        Add Friend
+      </button>
+    </div>
+  );
+}
+
+export default Card;
+
+
+
+
