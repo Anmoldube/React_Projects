@@ -1,0 +1,78 @@
+// import React, { useState } from "react";
+// // import Statetest from "../src/components/Statetest";
+
+// function App() {
+//   // const [color, setColor] = useState("white");
+//   // const [banned, setBanned] = useState(false);
+//   // const [val, setVal] = useState({
+//   //   Name: "Anmol Dube",
+//   //   Age: 21,
+//   // });
+
+//   // const data = [
+//   //   { name: "song 1", dec: "This is song dec..." },
+//   //   { name: "song 2", dec: "This is song dec2..." },
+//   //   { name: "song 2", dec: "This is song dec2..." },
+//   // ];
+
+//   // Function to toggle color
+//   // const toggleColor = () => {
+//   //   setColor((prevColor) => (prevColor === "white" ? "#0f0f0f" : "white"));
+//   // };
+
+//   const [val, setVal] = useState([1, 2, 3, 4, 5]);
+
+//   return (
+//     <div className="p-5">
+//       {val.map((it, index) => (
+//         <h1 key={index}>{it}</h1>
+//       ))}
+//       <button
+//         onClick={() =>
+//           setVal((prevVal) => {
+//             return prevVal.filter((_, index) => index !== prevVal.length - 1);
+//           })
+//         }
+//         className="py-3 px-3 bg-slate-400 rounded-full"
+//       >
+//         click me
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import React from "react";
+// import { useState } from "react";
+
+// export default function App() {
+//   const [val, setVal] = useState(false);
+
+//   return (
+//     <div>
+//       <h1 className="bg-zinc-500  hight-200 w-14">
+//         {val == false ? "Baahar jao" : "Maat jao"}
+//       </h1>
+//       <button
+//         className="bg-black rounded-full text-slate-200"
+//         onClick={() => {
+//           setVal(!val);
+//         }}
+//       >
+//         click to check{" "}
+//       </button>
+//     </div>
+//   );
+// }
+
+import React from "react";
+import Card from "./components/Card";
+export default function App() {
+  return (
+    <div>
+      <Card cha="know More.." />
+      <Card cha="...know less" />
+    </div>
+  );
+}
