@@ -1,0 +1,9 @@
+import { useState } from "react";
+
+function Statetest() {
+  const ans = useState(12);
+  console.log(ans);
+  return <div>12</div>;
+}
+
+export default Statetest;
