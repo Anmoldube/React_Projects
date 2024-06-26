@@ -30,3 +30,48 @@ function App() {
 }
 
 export default App;
+
+
+
+Real Time change in component
+import React, { useRef, useState } from "react";
+
+function App() {
+  const elem = useRef(null);
+  const age = useRef(null);
+
+  const [val, setValue] = useState({ name: "", age: 0 });
+  return (
+    <div>
+      <center>
+        <h1 className="justify-center text-5xl text-teal-400 my-4">
+          Test Form
+        </h1>
+        Enter text
+        <form action="" onSubmit={(details) => details.preventDefault()}>
+          <input
+            type="text"
+            ref={elem}
+            onChange={(event) => {
+              setValue({ name: event.target.value });
+            }}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 p-3 w-40"
+          ></input>
+          Enter Age:{" "}
+          <input
+            type="number"
+            ref={age}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 p-3 w-40"
+            onChange={(event) => {
+              setValue({ age: event.target.value });
+            }}
+          ></input>
+          <input type="submit" />
+        </form>
+      </center>
+    </div>
+  );
+}
+
+export default App;
+
