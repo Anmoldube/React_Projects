@@ -1,0 +1,138 @@
+App.jsx
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import Cards from "./components/Cards";
+
+function App() {
+  const [users, setUsers] = useState([]);
+
+  const handleFormSubmitData = (data) => {
+    setUsers([...users, data]);
+  };
+
+  const handleRemove = (id) => {
+    setUsers(users.filter((item, index) => index !== id));
+  };
+
+  return (
+    <div className="w-full h-screen bg-zinc-300 flex items-center justify-center bg-slate-300">
+      <div className="container mx-auto">
+        <Cards handleRemove={handleRemove} users={users}></Cards>
+        <Navbar handleFormSubmitData={handleFormSubmitData}></Navbar>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+card.jsx
+import React from "react";
+
+function Card({ user, id, handleRemove }) {
+  return (
+    <div className="w-40 rounded-lg flex items-center flex-col bg-teal-600 p-3 shadow-md">
+      <div className="image w-12 rounded-full overflow-hidden">
+        <img
+          className="rounded-full object-cover"
+          src={user.image}
+          alt="profile"
+        />
+      </div>
+      <h1 className="mt-1 text-xl font-semibold text-white text-center">
+        {user.name}
+      </h1>
+      <h4 className="font-sans text-sm font-semibold text-white">
+        {user.email}
+      </h4>
+      <p className="mt-2 text-sm text-center font-semibold leading-tight text-white">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      </p>
+      <button
+        className="bg-blue-300 rounded-md text-white text-xs h-7 w-20 hover:bg-red-700 mt-6"
+        onClick={() => handleRemove(id)}
+      >
+        Remove
+      </button>
+    </div>
+  );
+}
+
+export default Card;
+
+
+cards.jsx
+
+
+import React from "react";
+import Card from "./Card";
+
+function Cards({ users, handleRemove }) {
+  return (
+    <div className="w-full h-[50vh] overflow-auto mt-10 p-4 flex justify-center gap-4 rounded-lg flex-wrap bg-white shadow-md">
+      {users.map((item, index) => {
+        return (
+          <Card
+            user={item}
+            key={index}
+            id={index}
+            handleRemove={handleRemove}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+export default Cards;
+
+Form.jsx
+import React from "react";
+import { useForm } from "react-hook-form";
+
+function Navbar({ handleFormSubmitData }) {
+  const { register, handleSubmit, reset } = useForm();
+
+  const handleFormSubmit = (data) => {
+    handleFormSubmitData(data);
+    reset();
+  };
+  return (
+    <div className="mt-10 p-4 flex flex-col items-center">
+      <form
+        className="flex flex-wrap justify-center gap-4"
+        onSubmit={handleSubmit(handleFormSubmit)}
+      >
+        <input
+          {...register("name")}
+          type="text"
+          id="name1"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Name Here"
+        />
+        <input
+          {...register("email")}
+          type="email"
+          id="email"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Email"
+        />
+        <input
+          {...register("image")}
+          type="text"
+          id="image"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Image URL"
+        />
+        <input
+          type="submit"
+          className="bg-black text-yellow-50 mt-3 rounded-lg"
+        />
+      </form>
+    </div>
+  );
+}
+
+export default Navbar;
+
