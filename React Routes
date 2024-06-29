@@ -1,0 +1,38 @@
+npm i react-route-dom
+
+
+import React from "react";
+import Cards from "./components/Cards";
+import { Link, Routes, Route } from "react-router-dom";
+
+function App() {
+  return (
+    <div className="w-full h-full bg-slate-600">
+      <h1 className="text-teal-950 text-3xl">you are learning Routing...</h1>
+      <nav>
+        <Link to="/Home">Cards...</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Cards></Cards>} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+
+main.jsx is important
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
