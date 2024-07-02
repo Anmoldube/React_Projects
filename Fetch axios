@@ -1,0 +1,52 @@
+import axios from "axios";
+import React from "react";
+
+function App() {
+  const getproduct = () => {
+    const api = "https://fakestoreapi.com/products/1";
+    axios
+      .get(api)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
+  const addproduct = () => {
+    const api = "https://fakestoreapi.com/products";
+    axios
+      .post(api, {
+        title: "test product",
+        price: 13.5,
+        description: "lorem ipsum set",
+        image: "https://i.pravatar.cc",
+        category: "electronic",
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  return (
+    <div className="bg-slate-600 w-96 h-96 font-thin">
+      <button
+        className="rounded-full mt-5 items-center justify-center bg-black text-fuchsia-300  overflow-hidden"
+        onClick={() => {
+          getproduct();
+        }}
+      >
+        Chick to call{" "}
+      </button>
+      <button
+        className="p-3 m-5 rounded-full mt-5 items-center justify-center bg-black text-fuchsia-300  overflow-hidden"
+        onClick={() => {
+          addproduct();
+        }}
+      >
+        {"CALL to add new product"}
+      </button>
+    </div>
+  );
+}
+
+export default App;
